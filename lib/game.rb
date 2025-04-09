@@ -14,12 +14,13 @@ class Game
 
   def play_game
     puts @word
-    until @guesses_remaining == 0
-      player_guess
+    loop do
+      get_letter
+      break if @guesses_remaining == 0
     end
   end
 
-  def player_guess
+  def get_letter
     puts "Please select letter:"
     guess = gets.chomp.upcase
     loop do
@@ -32,4 +33,5 @@ class Game
       end 
     end
   end
+
 end
