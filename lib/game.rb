@@ -2,6 +2,7 @@ class Game
   def initialize
     @word = get_word
     @guesses_remaining = 6
+    @guesses = []
   end
 
   def get_word
@@ -15,7 +16,8 @@ class Game
   def play_game
     puts @word
     loop do
-      get_letter
+      player_guess = get_letter
+      check_guess(player_guess)
       break if @guesses_remaining == 0
     end
   end
@@ -25,12 +27,21 @@ class Game
     guess = gets.chomp.upcase
     loop do
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
-        @guesses_remaining -= 1
         return guess
       else
         puts "Selection is not a valid letter. Try again."
         guess = gets.chomp.upcase  
       end 
+    end
+  end
+
+  def check_guess(letter)
+    @guesses << letter
+    if @word.include?(letter)
+      puts "Correct guess"
+    else
+      puts "Incorrect guess"
+      @guesses_remaining -= 1
     end
   end
 
