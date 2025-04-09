@@ -27,7 +27,12 @@ class Game
     guess = gets.chomp.upcase
     loop do
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
-        return guess
+        if @guesses.include?(guess)
+          puts "Selection has already been used. Try again."
+          guess = gets.chomp.upcase 
+        else
+          return guess
+        end 
       else
         puts "Selection is not a valid letter. Try again."
         guess = gets.chomp.upcase  
