@@ -3,6 +3,7 @@ class Game
     @word = get_word
     @guesses_remaining = 6
     @guesses = []
+    @word_display = get_blank_display
   end
 
   def get_word
@@ -13,13 +14,31 @@ class Game
     end
   end
 
+  def get_blank_display
+    display = Array.new
+    @word.each_char do |letter|
+      display << "__"
+    end
+    display
+  end
+
   def play_game
     puts @word
     loop do
+      print_display
       player_guess = get_letter
       check_guess(player_guess)
       break if @guesses_remaining == 0
     end
+  end
+
+  def print_display
+    display = String.new
+    @word_display.each do |letter|
+      display << letter + " "
+    end
+    puts "Current Word:"
+    puts display
   end
 
   def get_letter
