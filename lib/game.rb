@@ -1,6 +1,7 @@
 class Game
   def initialize
     @word = get_word
+    @guesses_remaining = 6
   end
 
   def get_word
@@ -13,7 +14,7 @@ class Game
 
   def play_game
     puts @word
-    loop do
+    until @guesses_remaining == 0
       player_guess
     end
   end
@@ -23,6 +24,7 @@ class Game
     guess = gets.chomp.upcase
     loop do
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
+        @guesses_remaining -= 1
         return guess
       else
         puts "Selection is not a valid letter. Try again."
