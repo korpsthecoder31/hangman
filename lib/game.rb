@@ -3,6 +3,7 @@ class Game
     @word = get_word
     @guesses_remaining = 6
     @guesses = []
+    @word_array = get_word_array
     @word_display = get_blank_display
   end
 
@@ -12,6 +13,14 @@ class Game
       word = words.sample.upcase
       return word if word.length >= 5 && word.length <=12
     end
+  end
+
+  def get_word_array
+    display = Array.new
+    @word.each_char do |letter|
+      display << letter
+    end
+    display
   end
 
   def get_blank_display
@@ -75,9 +84,10 @@ class Game
   end
 
   def update_display(correct_guess)
-
-    @word_display.each do |letter|
-    
+    @word_array.each_with_index do |letter, index|
+      if letter == correct_guess
+        @word_display[index] = letter
+      end    
     end
   end
 
