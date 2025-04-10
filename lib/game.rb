@@ -40,7 +40,7 @@ class Game
       print_display
       break if @guesses_remaining == 0 || !@word_display.include?(nil)
     end
-    puts "Game Over"
+    game_over
   end
 
   def print_display
@@ -90,6 +90,15 @@ class Game
       if letter == correct_guess
         @word_display[index] = letter
       end    
+    end
+  end
+
+  def game_over
+    if @guesses_remaining == 0
+      puts "Game Over. You lose."
+      puts "Your word was #{@word}."
+    else
+      puts "Congratulations. You win!"
     end
   end
 
