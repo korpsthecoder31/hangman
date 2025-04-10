@@ -34,11 +34,11 @@ class Game
   def play_game
     puts @word
     loop do
-      print_display
       player_guess = get_letter
       check_guess(player_guess)
-      break if @guesses_remaining == 0
+      break if @guesses_remaining == 0 || !@word_display.include?(nil)
     end
+    puts "Game Over"
   end
 
   def print_display
