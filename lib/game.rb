@@ -17,7 +17,7 @@ class Game
   def get_blank_display
     display = Array.new
     @word.each_char do |letter|
-      display << "__"
+      display << nil
     end
     display
   end
@@ -35,7 +35,11 @@ class Game
   def print_display
     display = String.new
     @word_display.each do |letter|
-      display << letter + " "
+      if letter.nil?
+        display << "_ "
+      else
+        display << letter << " "
+      end
     end
     puts "Current Word:"
     puts display
@@ -63,9 +67,17 @@ class Game
     @guesses << letter
     if @word.include?(letter)
       puts "Correct guess"
+      update_display(letter)
     else
       puts "Incorrect guess"
       @guesses_remaining -= 1
+    end
+  end
+
+  def update_display(correct_guess)
+
+    @word_display.each do |letter|
+    
     end
   end
 
