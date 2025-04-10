@@ -77,11 +77,11 @@ class Game
   def check_guess(letter)
     @guesses << letter
     if @word.include?(letter)
-      puts "Correct guess"
+      puts "Correct guess."
       update_display(letter)
     else
-      puts "Incorrect guess"
       @guesses_remaining -= 1
+      puts "Incorrect guess. You have #{@guesses_remaining} lives left."
     end
   end
 
