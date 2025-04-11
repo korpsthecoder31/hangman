@@ -1,4 +1,7 @@
 require_relative 'new_game'
+require_relative 'save_load'
+
+include SaveLoad
 
 class Game < New_Game
   def initialize
@@ -35,6 +38,9 @@ class Game < New_Game
   def get_letter
     puts "Please select letter:"
     guess = gets.chomp.upcase
+    if guess == 'SAVE'
+      save_game
+    end
     loop do
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
         if @guesses.include?(guess)
