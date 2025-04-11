@@ -1,4 +1,4 @@
-class New_Game
+class NewGame
   def initialize
     @word = get_word
     @word_array = get_word_array

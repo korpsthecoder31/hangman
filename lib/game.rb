@@ -3,7 +3,7 @@ require_relative 'save_load'
 
 include SaveLoad
 
-class Game < New_Game
+class Game < NewGame
   def initialize
     super
     @guesses_remaining = 6
