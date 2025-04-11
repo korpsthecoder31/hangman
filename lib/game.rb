@@ -1,4 +1,4 @@
-require_relative 'intro'
+require_relative 'new_game'
 
 class Game < New_Game
   def initialize
