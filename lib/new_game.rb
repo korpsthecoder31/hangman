@@ -6,7 +6,7 @@ class NewGame
   end
 
   def get_word
-    words = File.open("google-10000-english-no-swears.txt").map(&:strip)
+    words = File.open("hangman.txt").map(&:strip)
     loop do
       word = words.sample.upcase
       return word if word.length >= 5 && word.length <=12
