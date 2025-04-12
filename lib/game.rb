@@ -11,7 +11,6 @@ class Game < NewGame
   end
 
   def play_game
-    puts @word
     print_display
     loop do
       player_guess = get_letter
