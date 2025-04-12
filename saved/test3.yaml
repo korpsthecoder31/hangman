@@ -7,10 +7,11 @@
 - W
 - S
 :word_display:
+- S
 - 
 - 
 - 
-- 
-- 
+- S
 :guesses_remaining: 6
-:guesses: []
+:guesses:
+- S

@@ -13,11 +13,12 @@ module SaveLoad
     }
 
     puts "*****************************"
-    puts "Game is now being saved."
+    puts "Saving game..."
 
     game_path = String.new
 
     loop do
+      puts "*****************************"
       puts "Please enter save file name. Omit .yaml suffix:"
       game_name = gets.chomp
       game_name << ".yaml"
@@ -45,16 +46,22 @@ module SaveLoad
 
   def load_game
     puts "*****************************"
-    puts "Loading game."
+    puts "Loading game..."
 
     game_path = String.new
 
+    puts "*****************************"
+    puts "Saved files:"
+    folder_path = File.expand_path('../saved', __dir__)
+    Dir.entries(folder_path).each do |file|
+      puts file if File.file?(File.join(folder_path, file))
+    end
    
     loop do
+      puts "*****************************"
       puts "Please enter save file name. Omit .yaml suffix:"
       game_name = gets.chomp
       game_name << ".yaml"
-      folder_path = File.expand_path('../saved', __dir__)
       game_path = File.join(folder_path, game_name)
       
       if File.exist?(game_path)
