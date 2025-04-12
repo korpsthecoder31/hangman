@@ -8,7 +8,7 @@ require 'yaml'
 include Intro
 
 game_mode = game_intro
-save_game_message
 game = Game.new
 game.load_game if game_mode == '2'
+save_game_message
 game.play_game
