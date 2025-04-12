@@ -6,7 +6,7 @@ include SaveLoad
 class Game < NewGame
   def initialize
     super
-    @guesses_remaining = 6
+    @guesses_remaining = 5
     @guesses = []
   end
 
@@ -44,7 +44,7 @@ class Game < NewGame
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
         if @guesses.include?(guess)
           puts "Selection has already been used."
-          puts "Letter used."
+          puts "Letter used:"
           p @guesses 
           puts "Try again."
           guess = gets.chomp.upcase 
