@@ -43,7 +43,10 @@ class Game < NewGame
     loop do
       if guess.length == 1 && (guess >= 'A' && guess <= 'Z')
         if @guesses.include?(guess)
-          puts "Selection has already been used. Try again."
+          puts "Selection has already been used."
+          puts "Letter used."
+          p @guesses 
+          puts "Try again."
           guess = gets.chomp.upcase 
         else
           return guess
