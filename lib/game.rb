@@ -77,9 +77,11 @@ class Game < NewGame
 
   def game_over
     if @guesses_remaining == 0
+      puts "*****************************"
       puts "Game Over. You lose."
       puts "Your word was #{@word}."
     else
+      puts "*****************************"
       puts "Congratulations. You win!"
     end
   end
