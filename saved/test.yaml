@@ -1,17 +1,18 @@
 ---
-:word: TOWER
+:word: INPUTS
 :word_array:
+- I
+- "N"
+- P
+- U
 - T
-- O
-- W
-- E
-- R
+- S
 :word_display:
-- T
+- 
+- 
 - 
 - 
 - 
 - 
 :guesses_remaining: 6
-:guesses:
-- T
+:guesses: []

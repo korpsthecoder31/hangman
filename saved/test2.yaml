@@ -1,17 +1,19 @@
 ---
-:word: SINGH
+:word: INPUTS
 :word_array:
-- S
 - I
 - "N"
-- G
-- H
-:word_display:
+- P
+- U
+- T
 - S
+:word_display:
+- I
+- 
 - 
 - 
 - 
 - 
 :guesses_remaining: 6
 :guesses:
-- S
+- I
