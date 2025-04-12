@@ -1,5 +1,7 @@
 require 'yaml'
 
+require_relative 'game'
+
 module SaveLoad
   def save_game
     game_state = {
@@ -35,9 +37,10 @@ module SaveLoad
 
     File.write(game_path, game_state.to_yaml)
     
+    puts "*****************************"
     puts "Game succesfully saved!"
 
-    exit
+    continue_game?
   end
 
   def load_game
@@ -54,5 +57,19 @@ module SaveLoad
     @word_display = game_state[:word_display]
     @guesses_remaining = game_state[:guesses_remaining]
     @guesses = game_state[:guesses]
+  end
+end
+
+def continue_game?
+  puts "*****************************"
+  puts "Would you like to continue your game?"
+  puts "Enter 'Y to continue:"
+  continue = gets.chomp.upcase
+  if continue != 'Y'
+    puts "*****************************"
+    puts "Thanks for playing. Goodbye!"
+    exit
+  else
+    play_game
   end
 end
