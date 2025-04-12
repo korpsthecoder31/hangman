@@ -1,16 +1,17 @@
 ---
-:word: KINDS
+:word: SINGH
 :word_array:
-- K
+- S
 - I
 - "N"
-- D
-- S
+- G
+- H
 :word_display:
-- 
+- S
 - 
 - 
 - 
 - 
 :guesses_remaining: 6
-:guesses: []
+:guesses:
+- S

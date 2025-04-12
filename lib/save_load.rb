@@ -10,20 +10,43 @@ module SaveLoad
       guesses: @guesses
     }
 
-    puts "Game is now being saved. Please enter save file name. Omit .yaml:"
-    game_name = gets.chomp
-    game_name << ".yaml"
-    game_path = File.join(File.dirname(__FILE__), game_name)
+    puts "*****************************"
+    puts "Game is now being saved."
+
+    game_path = ""
+
+    loop do
+      puts "Please enter save file name. Omit .yaml suffix:"
+      game_name = gets.chomp
+      game_name << ".yaml"
+      folder_path = File.expand_path('../saved', __dir__)
+      game_path = File.join(folder_path, game_name)
+
+      if File.exist?(game_path)
+        puts "#{game_path} already exists. Would you like to overrwrite this file? (y/n)"
+        overrwrite = gets.chomp.upcase
+        if overrwrite == 'Y'
+          break
+        end
+      else
+        break
+      end
+    end
+
     File.write(game_path, game_state.to_yaml)
+    
+    puts "Game succesfully saved!"
 
     exit
   end
 
   def load_game
+    puts "*****************************"
     puts "Enter file name to be loaded. Omit. yaml:"
     game_name = gets.chomp
     game_name << ".yaml"
-    game_path = File.join(File.dirname(__FILE__), game_name)
+    folder_path = File.expand_path('../saved', __dir__)
+    game_path = File.join(folder_path, game_name)
     game_state = YAML.load_file(game_path)
 
     @word = game_state[:word]
